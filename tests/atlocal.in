@@ -74,7 +74,14 @@ FLAGS="-debug -Wall ${COBOL_FLAGS} -fdiagnostics-plain-output"
 # workaround to adjust the testsuite later:
 FLAGS="${FLAGS} -fno-diagnostics-show-option"
 
+# MacOS workaround (HACK) to embed rpath during test
+if test "$GNUCOBOL_ENV_SETUP" != "1" -a "$GNUCOBOL_TEST_LOCAL" != "1"; then
+   # HACK, may need some version check, should likely be disabled if configure used --without-rpath
+   case "$OSTYPE" in darwin*) FLAGS="${FLAGS} -Q \"-R ${abs_top_builddir}/libcob/.libs\"";; esac
+fi
+
 COBC="${COBC}"
+
 COMPILE="${COBC} -x ${FLAGS}"
 COMPILE_ONLY="${COBC} -fsyntax-only ${FLAGS} -Wno-unsupported"
 COMPILE_MODULE="${COBC} -m ${FLAGS}"
