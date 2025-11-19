@@ -107,7 +107,7 @@ jobs:
                        --prefix=/opt/cobol/gnucobol \
                        --with-iconv --with-libiconv-prefix="$HOMEBREW_ROOT/libiconv" \
                        BDB_CFLAGS="-I$HOMEBREW_ROOT/berkeley-db@5/include" \
-                       BDB_LIBS="-L$HOMEBREW_ROOT/berkeley-db@5/lib"
+                       BDB_LIBS="-L$HOMEBREW_ROOT/berkeley-db@5/lib -ldb"
                        
 
       - name: Build GnuCOBOL
