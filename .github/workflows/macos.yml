@@ -105,9 +105,9 @@ jobs:
                        --enable-hardening \
                        --with-curses=ncurses \
                        --prefix=/opt/cobol/gnucobol \
-                       --with-iconv --with-libiconv-prefix=$HOMEBREW_ROOT/libiconv \
-                       BDB_CFLAGS=-I$HOMEBREW_ROOT/berkeley-db@5/include \
-                       BDB_LIBS=-L$HOMEBREW_ROOT/berkeley-db@5/lib"
+                       --with-iconv --with-libiconv-prefix="$HOMEBREW_ROOT/libiconv" \
+                       BDB_CFLAGS="-I$HOMEBREW_ROOT/berkeley-db@5/include" \
+                       BDB_LIBS="-L$HOMEBREW_ROOT/berkeley-db@5/lib"
                        
 
       - name: Build GnuCOBOL
