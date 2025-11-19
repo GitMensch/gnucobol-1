@@ -43,7 +43,7 @@ jobs:
 
       - name: Install packages
         run: |
-          brew update
+          brew update || brew update    # seldomly failing in most cases rerun works
           #brew install autoconf automake libtool bison \
           #             help2man texinfo \
           #             berkeley-db@5 json-c libiconv
